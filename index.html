@@ -655,6 +655,47 @@
     .footer-links a:hover { color: var(--gray-400); }
     .footer-copy { color: var(--gray-600); font-size: .75rem; }
 
+    /* ── MOBILE APP ─────────────────────────── */
+    .mobile-app-bg { background: #04101f; }
+    .mobile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px; margin: 52px 0 32px;
+    }
+    .mobile-card {
+      border-radius: var(--radius); padding: 28px 24px;
+      border: 1px solid transparent; transition: transform .3s;
+    }
+    .mobile-card:hover { transform: translateY(-3px); }
+    .mobile-card.patient  { background: rgba(37,99,235,.09);  border-color: rgba(37,99,235,.30);  }
+    .mobile-card.clinical { background: rgba(16,185,129,.09); border-color: rgba(16,185,129,.30); }
+    .mobile-mode-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .78rem; font-weight: 800;
+      padding: 4px 14px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .mobile-card.patient  .mobile-mode-badge { background: rgba(37,99,235,.22);  color: #93c5fd; }
+    .mobile-card.clinical .mobile-mode-badge { background: rgba(16,185,129,.22); color: #6ee7b7; }
+    .mobile-card h3 { font-size: .96rem; font-weight: 700; margin-bottom: 14px; }
+    .mobile-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .mobile-card li { font-size: .82rem; color: var(--gray-400); display: flex; align-items: flex-start; gap: 8px; }
+    .mobile-card.patient  li::before { content: '→'; color: #60a5fa; font-size: .75rem; flex-shrink: 0; margin-top: 2px; }
+    .mobile-card.clinical li::before { content: '→'; color: #34d399; font-size: .75rem; flex-shrink: 0; margin-top: 2px; }
+    .mobile-feats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+    .mobile-feat {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm); padding: 14px 16px;
+      font-size: .83rem; font-weight: 600; color: var(--gray-200);
+      transition: border-color .3s;
+    }
+    .mobile-feat:hover { border-color: rgba(77,143,245,.4); }
+    .mobile-feat .mf-icon { font-size: 1.25rem; flex-shrink: 0; }
+
     /* ── RESPONSIVE ──────────────────────────── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -688,6 +729,7 @@
   </a>
 
   <ul class="nav-links">
+    <li><a href="#app-movil">App Móvil</a></li>
     <li><a href="#modulos">Módulos</a></li>
     <li><a href="#para-quien">Para quién</a></li>
     <li><a href="#estandares">Estándares</a></li>
@@ -707,6 +749,7 @@
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#app-movil"     onclick="closeMobile()">App Móvil</a>
   <a href="#modulos"       onclick="closeMobile()">Módulos</a>
   <a href="#para-quien"    onclick="closeMobile()">Para quién</a>
   <a href="#estandares"    onclick="closeMobile()">Estándares</a>
@@ -751,6 +794,7 @@
       <span class="trust-badge">FHIR R4</span>
       <span class="trust-badge">HL7 v2</span>
       <span class="trust-badge">SSC 2021</span>
+      <span class="trust-badge">App iOS · Android</span>
     </div>
   </div>
 </section>
@@ -782,6 +826,10 @@
     <div class="stat-item reveal">
       <div class="stat-num">FHIR R4</div>
       <div class="stat-label">Interoperabilidad</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">iOS · Android</div>
+      <div class="stat-label">App nativa offline</div>
     </div>
   </div>
 </div>
@@ -824,7 +872,82 @@
       <div class="why-card reveal reveal-delay-3">
         <div class="why-icon" style="background:rgba(248,113,113,.2);">⚡</div>
         <h3>Arquitectura moderna</h3>
-        <p>.NET 8 + React 19 + SQL Server + SignalR en tiempo real. API REST versionada, worker jobs, outbox pattern, idempotencia y sagas distribuidas.</p>
+        <p>.NET 8 + React 19 + SQL Server + SignalR en tiempo real. App nativa iOS/Android (React Native + Expo). API REST, worker jobs, outbox pattern, idempotencia y sagas distribuidas.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon" style="background:rgba(139,92,246,.2);">🤖</div>
+        <h3>Motor IA / ML Clínico integrado</h3>
+        <p>Scoring automático qSOFA, NEWS2, Morse y Braden en la HCE. Alertas predictivas de deterioro, riesgo de caídas y úlceras por presión sin configuración adicional — sin dependencias externas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ APP MÓVIL ════════════════════════════════════════════════ -->
+<section class="mobile-app-bg" id="app-movil">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Movilidad clínica</div>
+      <h2 class="section-title">App nativa iOS · Android<br>con modo offline</h2>
+      <p class="section-subtitle">Pacientes y clínicos acceden al sistema desde cualquier lugar. Autenticación biométrica (FaceID / huella), sincronización automática al reconectar y caché local para operar sin conexión.</p>
+    </div>
+
+    <div class="mobile-grid">
+      <!-- Modo Paciente -->
+      <div class="mobile-card patient reveal reveal-delay-1">
+        <div class="mobile-mode-badge">👤 Modo Paciente</div>
+        <h3>Acceso completo a su salud</h3>
+        <ul>
+          <li>Próximas citas y resultados de laboratorio</li>
+          <li>Medicamentos activos y alergias registradas</li>
+          <li>Registro de inmunizaciones</li>
+          <li>Mensajería segura con su médico</li>
+          <li>Perfil y estado de sincronización offline</li>
+        </ul>
+      </div>
+      <!-- Modo Clínico -->
+      <div class="mobile-card clinical reveal reveal-delay-2">
+        <div class="mobile-mode-badge">🩺 Modo Clínico</div>
+        <h3>Flujo asistencial en la palma de la mano</h3>
+        <ul>
+          <li>KPIs del día, alertas críticas y tareas pendientes</li>
+          <li>Búsqueda de pacientes con fallback offline</li>
+          <li>Expediente completo: vitales, labs, meds, alergias</li>
+          <li>Entrada de signos vitales sin conexión</li>
+          <li>Agenda diaria y resultados de laboratorio críticos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mobile-feats">
+      <div class="mobile-feat reveal reveal-delay-1">
+        <span class="mf-icon">📲</span>
+        <div>
+          <strong>Offline real</strong><br>
+          <span style="font-weight:400;color:var(--gray-400)">SQLite local · sync automático al reconectar</span>
+        </div>
+      </div>
+      <div class="mobile-feat reveal reveal-delay-2">
+        <span class="mf-icon">🔐</span>
+        <div>
+          <strong>Biométrico</strong><br>
+          <span style="font-weight:400;color:var(--gray-400)">FaceID · Huella dactilar · JWT seguro</span>
+        </div>
+      </div>
+      <div class="mobile-feat reveal reveal-delay-3">
+        <span class="mf-icon">🌐</span>
+        <div>
+          <strong>Bilingüe ES / EN</strong><br>
+          <span style="font-weight:400;color:var(--gray-400)">Misma API que el ERP web</span>
+        </div>
+      </div>
+      <div class="mobile-feat reveal reveal-delay-1">
+        <span class="mf-icon">⚡</span>
+        <div>
+          <strong>React Native · Expo SDK 52</strong><br>
+          <span style="font-weight:400;color:var(--gray-400)">iOS 16+ · Android 10+ · un solo código</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1038,7 +1161,7 @@
     <div class="text-center reveal">
       <div class="section-tag">Casos de uso</div>
       <h2 class="section-title">Diseñado para su tipo<br>de institución</h2>
-      <p class="section-subtitle">Atiende el espectro completo de instituciones de salud públicas y privadas. Configuramos el sistema según su modelo operativo — no todo el mundo necesita los 89 módulos desde el día uno.</p>
+      <p class="section-subtitle">Atiende el espectro completo de instituciones de salud públicas y privadas. Configuramos el sistema según su modelo operativo — no todo el mundo necesita los 112 módulos desde el día uno.</p>
     </div>
     <div class="inst-grid">
       <div class="inst-card reveal reveal-delay-1">
@@ -1105,6 +1228,17 @@
           <li>Registro de crisis con plan de seguridad</li>
           <li>Tablero de alto riesgo 30 días</li>
           <li>Trabajo Social integrado</li>
+        </ul>
+      </div>
+      <div class="inst-card reveal reveal-delay-1">
+        <div class="inst-emoji">🏭</div>
+        <h3>Empresa Industrial / Manufactura</h3>
+        <ul>
+          <li>TamanCorp FMS standalone</li>
+          <li>BOM multinivel + ruteos de producción</li>
+          <li>OEE en tiempo real por línea / turno</li>
+          <li>Trazabilidad completa lote / serie</li>
+          <li>RRHH, Nómina y Mantenimiento integrados</li>
         </ul>
       </div>
     </div>
@@ -1238,6 +1372,7 @@
           <li>CRF electrónicos por visita</li>
           <li>Gestión de sujetos y sitios</li>
           <li>Farmacovigilancia · ICH-GCP · 21 CFR</li>
+          <li>Motor estadístico puro — t-test, KM, ANOVA, regresión</li>
         </ul>
         <div class="sa-sectors">
           <span class="sa-sector">Industria farmacéutica</span>
@@ -1437,6 +1572,7 @@
         <div class="tech-grid">
           <div class="tech-pill"><span class="dot" style="background:#512bd4;"></span>.NET 8 · ASP.NET Core</div>
           <div class="tech-pill"><span class="dot" style="background:#61dafb;"></span>React 19 · Vite · TS</div>
+          <div class="tech-pill"><span class="dot" style="background:#10b981;"></span>React Native · Expo 52</div>
           <div class="tech-pill"><span class="dot" style="background:#cc2927;"></span>SQL Server 2022</div>
           <div class="tech-pill"><span class="dot" style="background:#e535ab;"></span>SignalR Real-time</div>
           <div class="tech-pill"><span class="dot" style="background:#0db7ed;"></span>Docker + Compose</div>
