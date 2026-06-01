@@ -1,289 +1,1745 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TamanCorp Clinical ERP — El ERP clínico Enterprise que su institución merece. 112 módulos · 10 soluciones independientes · Configurable para cualquier país · Bilingüe (ES/EN) · Instituciones de salud públicas y privadas. Solicite demostración gratuita.">
+  <title>TamanCorp Clinical ERP | El ERP clínico Enterprise que su institución merece</title>
+  <link href="favicon.ico" rel="shortcut icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <head>
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <title>Tamancorp Systems</title>
+    :root {
+      --blue-950: #030b1a;
+      --blue-900: #061528;
+      --blue-800: #0a2240;
+      --blue-700: #0e3060;
+      --blue-600: #1249a0;
+      --blue-500: #1a6be0;
+      --blue-400: #4d8ff5;
+      --blue-300: #87b4fa;
+      --teal-500: #0cb8b8;
+      --teal-400: #14d4d4;
+      --teal-300: #5ee8e8;
+      --green-500: #10b981;
+      --amber-400: #fbbf24;
+      --white:  #ffffff;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --glass:        rgba(255,255,255,0.05);
+      --glass-border: rgba(255,255,255,0.10);
+      --radius:    16px;
+      --radius-sm: 10px;
+    }
 
-     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--blue-950);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    /* ── Scroll reveal ──────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
 
-    <!-- Custom styles for this template -->
-    <link href="css/creative.min.css" rel="stylesheet">
-    
-    <link href="favicon.ico" rel="shortcut icon">
-    
-  </head>
-        
-  <body id="page-top">
+    /* ── NAVBAR ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 68px;
+      background: rgba(3,11,26,.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: background .3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo img { height: 34px; }
+    .nav-logo-text {
+      font-size: .88rem; font-weight: 700;
+      color: rgba(255,255,255,.65);
+      white-space: nowrap;
+    }
+    /* ── Brand color split: Taman (azul oscuro) · Corp (verde) ── */
+    .tc-taman { color: var(--blue-500); }        /* #1a6be0 — azul más oscuro */
+    .tc-corp  { color: #10b981; }                /* verde esmeralda */
+    /* Hero (fondo muy oscuro → un tono más claro para legibilidad) */
+    .hero h1 .tc-taman { color: var(--blue-400); -webkit-text-fill-color: var(--blue-400); } /* #4d8ff5 */
+    .hero h1 .tc-corp  { color: #34d399;         -webkit-text-fill-color: #34d399; }         /* verde brillante */
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--gray-400); text-decoration: none;
+      font-size: .86rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--blue-500), var(--teal-500));
+      color: #fff; text-decoration: none;
+      padding: 9px 22px; border-radius: 8px;
+      font-size: .86rem; font-weight: 700;
+      white-space: nowrap; transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
-        <img class="img-fluid" src="img/logo.png" alt="">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Servicios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Productos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column;
+      justify-content: center; gap: 5px;
+      width: 36px; height: 36px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--gray-400);
+      border-radius: 2px; transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    <header class="masthead">
-      <div class="header-content">
-        <div class="header-content-inner">
-          <h1 id="homeHeading">Integradores de Tecnología <br>
-          En Sistemas de Información</h1>
-          <hr>
-          <h5> En Tamancorp Systems ofrecemos los mejores sistemas informáticos para su negocio
-          </h5>
-          <hr>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Tamancorp Systems</a>
-          <hr>
-        </div>
-      </div>
-    </header>
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: rgba(6,21,40,.97);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 24px 32px; z-index: 199;
+      flex-direction: column; gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--gray-200); text-decoration: none;
+      font-size: 1rem; font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .mob-cta {
+      margin-top: 16px;
+      background: linear-gradient(135deg, var(--blue-500), var(--teal-500));
+      color: #fff; text-align: center;
+      padding: 14px; border-radius: 10px;
+      font-weight: 700; border-bottom: none !important;
+    }
 
-    <section class="bg-primary" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">Tenemos lo que usted necesita!</h2>
-            <hr class="light">
-            <p class="text-faded">En Tamancorp Systems nos especializamos en ofrecer a nuestros clientes las mejores alternativas en sistemas informáticos para su negocio además de realizar desarrollos a la medida de sus necesidades</p>
-           <a class="btn btn-default btn-xl js-scroll-trigger" href="#portfolio">Productos</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    /* ── HERO ─────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 130px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 100% 70% at 50% -5%,  rgba(26,107,224,.30) 0%, transparent 65%),
+        radial-gradient(ellipse 50%  40% at 80%  90%, rgba(12,184,184,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40%  30% at 10%  70%, rgba(77,143,245,.10) 0%, transparent 60%),
+        linear-gradient(180deg, var(--blue-950) 0%, #050f20 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: .045;
+      background-image:
+        linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    /* Floating orbs */
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none; animation: float 8s ease-in-out infinite;
+    }
+    .orb-1 { width: 340px; height: 340px; background: rgba(26,107,224,.14); top: 10%; left: -8%; animation-delay: 0s; }
+    .orb-2 { width: 260px; height: 260px; background: rgba(12,184,184,.12); bottom: 15%; right: -5%; animation-delay: -3s; }
+    .orb-3 { width: 180px; height: 180px; background: rgba(77,143,245,.10); top: 45%; left: 55%; animation-delay: -5s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-28px) scale(1.04); }
+    }
 
-    <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">A su Servicio</h2>
-            <hr class="primary">
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box">
-              <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-              <h3>Implantación</h3>
-              <p class="text-muted">Instalación y puesta en marcha de sistemas.</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box">
-              <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-              <h3>Soporte</h3>
-              <p class="text-muted">Soporte de calidad a plena satisfacción!</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box">
-              <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-              <h3>Desarrollos</h3>
-              <p class="text-muted">Desarrollo de software a la medida.</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box">
-              <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-              <h3>Hecho con Amor</h3>
-              <p class="text-muted">Nuestra pasión es la excelencia en el tabajo!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(26,107,224,.16);
+      border: 1px solid rgba(77,143,245,.35);
+      color: var(--blue-300); padding: 6px 20px;
+      border-radius: 100px; font-size: .78rem;
+      font-weight: 700; letter-spacing: .6px;
+      margin-bottom: 30px; text-transform: uppercase;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--teal-400);
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
-    <section id="portfolio" style="position:relative; padding: 80px 0; background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80') center center / cover no-repeat;">
-      <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(10,30,60,0.82);"></div>
-      <div class="container" style="position:relative;z-index:2;">
-        <div class="row">
-          <div class="col-lg-12 text-center" style="margin-bottom:36px;">
-            <h2 class="section-heading" style="color:#fff;">TAMANCORP CLINICAL ERP ENTERPRISE</h2>
-            <hr class="primary">
-            <p style="color:#cde;font-size:1.05rem;">62 módulos organizados en 5 grupos por criticidad y dependencia</p>
-          </div>
-        </div>
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -2.5px; margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--teal-400) 0%, var(--blue-400) 60%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-tagline {
+      font-size: 1.22rem; font-weight: 600;
+      color: var(--gray-200); margin-bottom: 16px; line-height: 1.4;
+    }
+    .hero p {
+      font-size: 1.05rem; color: var(--gray-400);
+      max-width: 680px; margin: 0 auto 42px;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-lg {
+      padding: 15px 36px; border-radius: 10px;
+      font-weight: 700; font-size: .98rem;
+      text-decoration: none; transition: all .25s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue-500), var(--teal-500));
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(26,107,224,.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(26,107,224,.55); }
+    .btn-outline {
+      background: transparent; color: var(--gray-200);
+      border: 1px solid var(--glass-border);
+    }
+    .btn-outline:hover { background: var(--glass); border-color: rgba(255,255,255,.22); }
 
-        <!-- FASE 1 -->
-        <div class="row mb-3">
-          <div class="col-12">
-            <div style="background:rgba(0,168,168,0.18);border:1.5px solid #00a8a8;border-radius:12px;padding:18px 20px;">
-              <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
-                <span style="background:#00a8a8;color:#fff;font-weight:700;font-size:.85rem;padding:3px 10px;border-radius:20px;">1</span>
-                <strong style="color:#7ef7f7;font-size:1rem;">Cimientos y seguridad</strong>
-                <span style="color:#9dd;font-size:.82rem;">9 módulos · Prerequisito de todo lo demás</span>
-              </div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                <span class="mod-tag teal">Autenticación MFA</span><span class="mod-tag teal">SSO</span><span class="mod-tag teal">Usuarios y Roles</span><span class="mod-tag teal">Auditoría</span><span class="mod-tag teal">Perfil de Usuario</span><span class="mod-tag teal">Configuración</span><span class="mod-tag teal">HL7 Integration</span><span class="mod-tag teal">Motor Reportes</span><span class="mod-tag teal">Dashboard</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    /* Hero trust strip */
+    .hero-trust {
+      position: relative; z-index: 2;
+      margin-top: 56px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .trust-label { font-size: .75rem; color: var(--gray-600); font-weight: 500; text-transform: uppercase; letter-spacing: .5px; }
+    .trust-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--glass); border: 1px solid var(--glass-border);
+      padding: 5px 14px; border-radius: 100px;
+      font-size: .75rem; color: var(--gray-400); font-weight: 600;
+    }
+    .trust-badge::before { content:'✓'; color: var(--green-500); font-weight: 800; }
 
-        <!-- arrow -->
-        <div class="row"><div class="col-12 text-center" style="color:#aaa;font-size:1.3rem;line-height:1;margin-bottom:8px;">&#8595;</div></div>
+    /* ── STATS BAR ────────────────────────────── */
+    .stats-bar {
+      background: rgba(255,255,255,.04);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0;
+    }
+    .stats-grid {
+      display: flex; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;
+    }
+    .stat-item {
+      flex: 1; min-width: 130px; text-align: center;
+      padding: 26px 16px;
+      border-right: 1px solid var(--glass-border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 2.2rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, var(--blue-300) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: .72rem; color: var(--gray-400);
+      font-weight: 600; margin-top: 5px;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
 
-        <!-- FASE 2 -->
-        <div class="row mb-3">
-          <div class="col-12">
-            <div style="background:rgba(0,100,200,0.18);border:1.5px solid #3a8de0;border-radius:12px;padding:18px 20px;">
-              <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
-                <span style="background:#3a8de0;color:#fff;font-weight:700;font-size:.85rem;padding:3px 10px;border-radius:20px;">2</span>
-                <strong style="color:#9dc8ff;font-size:1rem;">Núcleo clínico</strong>
-                <span style="color:#9dd;font-size:.82rem;">13 módulos · Operación asistencial básica</span>
-              </div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                <span class="mod-tag blue">Pacientes</span><span class="mod-tag blue">Agenda</span><span class="mod-tag blue">Hospitalización</span><span class="mod-tag blue">Urgencias</span><span class="mod-tag blue">Gestión Camas</span><span class="mod-tag blue">Medicaciones</span><span class="mod-tag blue">Farmacia</span><span class="mod-tag blue">Laboratorio</span><span class="mod-tag blue">Imagenología</span><span class="mod-tag blue">CPOE / Orders</span><span class="mod-tag blue">Facturación AR</span><span class="mod-tag blue">Cargos</span><span class="mod-tag blue">Notificaciones</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    /* ── SHARED ──────────────────────────────── */
+    section { padding: 100px 0; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+    .section-tag {
+      display: inline-block; color: var(--teal-400);
+      font-size: .75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; letter-spacing: -.5px;
+      margin-bottom: 16px; line-height: 1.15;
+    }
+    .section-subtitle {
+      color: var(--gray-400); font-size: 1.05rem;
+      max-width: 620px; line-height: 1.72;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-subtitle { margin: 0 auto; }
 
-        <div class="row"><div class="col-12 text-center" style="color:#aaa;font-size:1.3rem;line-height:1;margin-bottom:8px;">&#8595;</div></div>
+    /* ── WHY ─────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-top: 56px;
+    }
+    .why-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: border-color .3s, transform .3s;
+      cursor: default;
+    }
+    .why-card:hover { border-color: rgba(77,143,245,.45); transform: translateY(-4px); }
+    .why-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; margin-bottom: 20px;
+    }
+    .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .why-card p  { font-size: .86rem; color: var(--gray-400); line-height: 1.7; }
 
-        <!-- FASE 3 -->
-        <div class="row mb-3">
-          <div class="col-12">
-            <div style="background:rgba(120,60,200,0.18);border:1.5px solid #9b6ee0;border-radius:12px;padding:18px 20px;">
-              <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
-                <span style="background:#9b6ee0;color:#fff;font-weight:700;font-size:.85rem;padding:3px 10px;border-radius:20px;">3</span>
-                <strong style="color:#d4b0ff;font-size:1rem;">Especialidades hospitalarias y seguridad clínica</strong>
-                <span style="color:#9dd;font-size:.82rem;">16 módulos</span>
-              </div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                <span class="mod-tag purple">UCI</span><span class="mod-tag purple">Quirófano</span><span class="mod-tag purple">UCIN</span><span class="mod-tag purple">AIMS Anestesia</span><span class="mod-tag purple">Diálisis</span><span class="mod-tag purple">BCMA 5 Correctos</span><span class="mod-tag purple">Alertas CDS</span><span class="mod-tag purple">EWS / NEWS2</span><span class="mod-tag purple">Sepsis SSC</span><span class="mod-tag purple">Concil. Meds.</span><span class="mod-tag purple">Dosis Unitaria</span><span class="mod-tag purple">Inventario</span><span class="mod-tag purple">Banco de Sangre</span><span class="mod-tag purple">Esterilización</span><span class="mod-tag purple">Formulario Farm.</span><span class="mod-tag purple">Staff Médico</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    /* ── MODULE ARCHITECTURE ─────────────────── */
+    .arch-bg { background: #04101f; }
+    .phases   { display: flex; flex-direction: column; gap: 10px; margin-top: 52px; }
+    .phase {
+      border-radius: var(--radius); padding: 22px 26px;
+      border: 1.5px solid transparent;
+      transition: border-color .3s, transform .2s;
+    }
+    .phase:hover { transform: translateX(4px); }
+    .phase-hd {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 14px; margin-bottom: 14px;
+    }
+    .pn {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .88rem; flex-shrink: 0;
+    }
+    .pt  { font-weight: 700; font-size: .96rem; }
+    .pc  {
+      font-size: .75rem; color: var(--gray-400);
+      background: rgba(255,255,255,.07);
+      padding: 2px 10px; border-radius: 20px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      display: inline-block; padding: 4px 13px;
+      border-radius: 100px; font-size: .75rem;
+      font-weight: 500; white-space: nowrap;
+    }
+    .tag.new::after { content:' ✦'; font-size: .6rem; }
+    /* phase colors */
+    .p1 { background: rgba(0,168,168,.09); }
+    .p1:hover { border-color: rgba(0,200,200,.35); }
+    .p1 .pn  { background:#00a8a8; color:#fff; }
+    .p1 .pt  { color:#7ef7f7; }
+    .p1 .tag { background:rgba(0,168,168,.18); color:#7ef7f7; border:1px solid rgba(0,168,168,.4); }
+    .p2 { background: rgba(26,107,224,.09); }
+    .p2:hover { border-color: rgba(77,143,245,.35); }
+    .p2 .pn  { background:#1a6be0; color:#fff; }
+    .p2 .pt  { color:#87b4fa; }
+    .p2 .tag { background:rgba(26,107,224,.18); color:#9dc8ff; border:1px solid rgba(26,107,224,.4); }
+    .p3 { background: rgba(120,60,200,.10); }
+    .p3:hover { border-color: rgba(160,100,250,.35); }
+    .p3 .pn  { background:#7b40d4; color:#fff; }
+    .p3 .pt  { color:#c9a0fc; }
+    .p3 .tag { background:rgba(120,60,200,.18); color:#d4b0ff; border:1px solid rgba(120,60,200,.4); }
+    .p4 { background: rgba(212,160,23,.09); }
+    .p4:hover { border-color: rgba(250,190,30,.35); }
+    .p4 .pn  { background:#d4a017; color:#fff; }
+    .p4 .pt  { color:#ffe08a; }
+    .p4 .tag { background:rgba(212,160,23,.18); color:#ffe08a; border:1px solid rgba(212,160,23,.4); }
+    .p5 { background: rgba(210,80,80,.09); }
+    .p5:hover { border-color: rgba(250,120,120,.35); }
+    .p5 .pn  { background:#c85858; color:#fff; }
+    .p5 .pt  { color:#ffb3b3; }
+    .p5 .tag { background:rgba(210,80,80,.18); color:#ffb3b3; border:1px solid rgba(210,80,80,.4); }
+    .ph-arrow { text-align:center; color:var(--gray-600); font-size:1.1rem; padding:2px 0; }
 
-        <div class="row"><div class="col-12 text-center" style="color:#aaa;font-size:1.3rem;line-height:1;margin-bottom:8px;">&#8595;</div></div>
+    /* ── INSTITUTION TYPES ───────────────────── */
+    .inst-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px; margin-top: 52px;
+    }
+    .inst-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius); padding: 28px 24px;
+      transition: all .3s;
+    }
+    .inst-card:hover { background: rgba(26,107,224,.1); border-color: rgba(77,143,245,.4); transform: translateY(-3px); }
+    .inst-emoji { font-size: 2rem; margin-bottom: 14px; }
+    .inst-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+    .inst-card ul  { list-style: none; }
+    .inst-card li  {
+      font-size: .8rem; color: var(--gray-400);
+      padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .inst-card li:last-child { border-bottom: none; }
+    .inst-card li::before { content:'→'; color:var(--teal-400); font-size:.75rem; flex-shrink:0; }
 
-        <!-- FASE 4 -->
-        <div class="row mb-3">
-          <div class="col-12">
-            <div style="background:rgba(200,140,0,0.18);border:1.5px solid #d4a017;border-radius:12px;padding:18px 20px;">
-              <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
-                <span style="background:#d4a017;color:#fff;font-weight:700;font-size:.85rem;padding:3px 10px;border-radius:20px;">4</span>
-                <strong style="color:#ffe08a;font-size:1rem;">Finanzas, RRHH y calidad</strong>
-                <span style="color:#9dd;font-size:.82rem;">15 módulos · Cierre del ciclo administrativo</span>
-              </div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                <span class="mod-tag amber">Seguros</span><span class="mod-tag amber">Reclamos</span><span class="mod-tag amber">Cuentas x Pagar</span><span class="mod-tag amber">Concil. Bancaria</span><span class="mod-tag amber">Contabilidad</span><span class="mod-tag amber">RRHH / Nómina</span><span class="mod-tag amber">Credencialización</span><span class="mod-tag amber">Indicadores Cal.</span><span class="mod-tag amber">Control Infecc.</span><span class="mod-tag amber">Gestión Riesgos</span><span class="mod-tag amber">Satisf. Paciente</span><span class="mod-tag amber">Codif. Clínica</span><span class="mod-tag amber">Contratos</span><span class="mod-tag amber">Gestión Documental</span><span class="mod-tag amber">Analytics</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    /* ── STANDARDS ───────────────────────────── */
+    .std-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px; margin-top: 52px;
+    }
+    .std-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius); padding: 26px 22px; text-align: center;
+      transition: border-color .3s;
+    }
+    .std-card:hover { border-color: rgba(12,184,184,.45); }
+    .std-icon { font-size: 1.9rem; margin-bottom: 14px; }
+    .std-card h3 { font-size: .9rem; font-weight: 700; margin-bottom: 8px; color: var(--teal-300); }
+    .std-card p  { font-size: .8rem; color: var(--gray-400); line-height: 1.65; }
 
-        <div class="row"><div class="col-12 text-center" style="color:#aaa;font-size:1.3rem;line-height:1;margin-bottom:8px;">&#8595;</div></div>
+    /* ── STANDALONE PRODUCTS ─────────────────── */
+    .standalone-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px; margin-top: 52px;
+    }
+    .standalone-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius); padding: 26px 24px;
+      transition: all .3s;
+    }
+    .standalone-card:hover {
+      border-color: rgba(77,143,245,.5);
+      transform: translateY(-4px);
+      background: rgba(26,107,224,.1);
+    }
+    .sa-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .65rem; font-weight: 800;
+      background: rgba(26,107,224,.22);
+      border: 1px solid rgba(77,143,245,.4);
+      color: var(--blue-300);
+      padding: 3px 10px; border-radius: 100px;
+      letter-spacing: .5px; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .standalone-card h3 {
+      font-size: 1rem; font-weight: 800;
+      color: var(--white); margin-bottom: 7px;
+    }
+    .sa-tagline {
+      font-size: .8rem; color: var(--gray-400);
+      line-height: 1.55; margin-bottom: 14px;
+    }
+    .sa-includes { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+    .sa-includes li {
+      font-size: .75rem; color: var(--gray-400);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .sa-includes li::before { content: '✓'; color: var(--teal-400); font-weight: 800; font-size: .68rem; flex-shrink: 0; }
+    .sa-sectors { display: flex; flex-wrap: wrap; gap: 5px; }
+    .sa-sector {
+      font-size: .67rem; font-weight: 600;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--glass-border);
+      color: var(--gray-400);
+      padding: 3px 9px; border-radius: 100px;
+    }
 
-        <!-- FASE 5 -->
-        <div class="row">
-          <div class="col-12">
-            <div style="background:rgba(200,80,80,0.18);border:1.5px solid #e07070;border-radius:12px;padding:18px 20px;">
-              <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
-                <span style="background:#e07070;color:#fff;font-weight:700;font-size:.85rem;padding:3px 10px;border-radius:20px;">5</span>
-                <strong style="color:#ffb3b3;font-size:1rem;">Expansión y servicios complementarios</strong>
-                <span style="color:#9dd;font-size:.82rem;">9 módulos · Salud pública, analítica y portal paciente</span>
-              </div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                <span class="mod-tag coral">Telemedicina</span><span class="mod-tag coral">Portal Paciente</span><span class="mod-tag coral">Atención Primaria</span><span class="mod-tag coral">Med. Ocupacional</span><span class="mod-tag coral">Oncología</span><span class="mod-tag coral">Rehabilitación</span><span class="mod-tag coral">Dietética/Nutrición</span><span class="mod-tag coral">Mantenimiento</span><span class="mod-tag coral">Motor Comunicaciones</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    /* ── IMPLEMENTATION STEPS ────────────────── */
+    .impl-bg { background: linear-gradient(180deg, #04101f 0%, var(--blue-950) 100%); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0; margin-top: 52px; position: relative;
+    }
+    .step {
+      text-align: center; padding: 32px 24px; position: relative;
+    }
+    .step::after {
+      content: '→';
+      position: absolute; right: -12px; top: 46px;
+      color: var(--blue-600); font-size: 1.4rem;
+    }
+    .step:last-child::after { display: none; }
+    .step-circle {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-500), var(--teal-500));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin: 0 auto 18px;
+      box-shadow: 0 8px 28px rgba(26,107,224,.35);
+    }
+    .step h3 { font-size: .9rem; font-weight: 700; margin-bottom: 8px; }
+    .step p  { font-size: .78rem; color: var(--gray-400); line-height: 1.6; }
+    .step-num {
+      display: inline-block;
+      font-size: .7rem; font-weight: 800; color: var(--blue-400);
+      letter-spacing: 1px; margin-bottom: 6px;
+    }
 
-      </div>
-    </section>
+    /* ── COUNTRIES ───────────────────────────── */
+    .countries-bg { background: #04101f; }
+    .countries-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 56px; align-items: start; margin-top: 52px;
+    }
+    .country-list { display: flex; flex-direction: column; gap: 14px; }
+    .country-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm); padding: 18px 20px;
+      transition: border-color .3s;
+    }
+    .country-item:hover { border-color: rgba(77,143,245,.4); }
+    .cf { font-size: 1.7rem; flex-shrink: 0; line-height: 1.1; }
+    .ci h4 { font-size: .88rem; font-weight: 700; margin-bottom: 3px; }
+    .ci p  { font-size: .76rem; color: var(--gray-400); line-height: 1.5; }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tech-pill {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: 10px; padding: 12px 14px;
+      font-size: .79rem; font-weight: 600; color: var(--gray-200);
+      display: flex; align-items: center; gap: 9px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-    <style>
-      .mod-tag { display:inline-block; padding:4px 12px; border-radius:20px; font-size:.78rem; font-weight:500; }
-      .mod-tag.teal   { background:rgba(0,168,168,0.25); color:#7ef7f7; border:1px solid rgba(0,168,168,0.5); }
-      .mod-tag.blue   { background:rgba(58,141,224,0.25); color:#9dc8ff; border:1px solid rgba(58,141,224,0.5); }
-      .mod-tag.purple { background:rgba(155,110,224,0.25); color:#d4b0ff; border:1px solid rgba(155,110,224,0.5); }
-      .mod-tag.amber  { background:rgba(212,160,23,0.25); color:#ffe08a; border:1px solid rgba(212,160,23,0.5); }
-      .mod-tag.coral  { background:rgba(224,112,112,0.25); color:#ffb3b3; border:1px solid rgba(224,112,112,0.5); }
-    </style>
+    /* ── INTEGRATION ─────────────────────────── */
+    .integ-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 14px; margin-top: 52px;
+    }
+    .integ-card {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm); padding: 22px 18px; text-align: center;
+      transition: all .3s;
+    }
+    .integ-card:hover { background: rgba(26,107,224,.14); border-color: rgba(77,143,245,.4); }
+    .integ-card .badge { font-size: 1.05rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .integ-card p { font-size: .76rem; color: var(--gray-400); line-height: 1.6; }
 
-    <div class="call-to-action bg-dark">
-      <div class="container text-center">
-        <h2>Los mejores sistemas informáticos!</h2>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#page-top">Tamancorp Systems</a>
-      </div>
+    /* ── CONTACT FORM ────────────────────────── */
+    .contact-bg { background: #04101f; }
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 56px; align-items: start; margin-top: 52px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-info-card {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm); padding: 20px;
+    }
+    .contact-info-card .ci-icon {
+      font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;
+    }
+    .contact-info-card h4 { font-size: .88rem; font-weight: 700; margin-bottom: 4px; }
+    .contact-info-card a { color: var(--teal-400); text-decoration: none; font-size: .86rem; }
+    .contact-info-card a:hover { text-decoration: underline; }
+    .contact-info-card p { color: var(--gray-400); font-size: .8rem; margin-top: 3px; }
+
+    .form-card {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius); padding: 36px 32px;
+    }
+    .form-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+    .form-subtitle { font-size: .83rem; color: var(--gray-400); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .form-group label { font-size: .78rem; font-weight: 600; color: var(--gray-200); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px; padding: 11px 14px;
+      color: var(--white); font-size: .88rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color .2s, background .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue-400);
+      background: rgba(26,107,224,.1);
+    }
+    .form-group select option { background: #0e1f3a; }
+    .form-group textarea { resize: vertical; min-height: 96px; }
+    .form-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue-500), var(--teal-500));
+      color: #fff; border: none; cursor: pointer;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: .96rem; font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      transition: opacity .2s, transform .2s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { opacity: .88; transform: translateY(-1px); }
+    .form-note {
+      text-align: center; font-size: .74rem;
+      color: var(--gray-600); margin-top: 12px;
+    }
+    /* success state */
+    .form-success {
+      display: none; text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success.show { display: block; }
+    .form-success .ok-icon { font-size: 3rem; margin-bottom: 16px; }
+    .form-success h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .form-success p { color: var(--gray-400); font-size: .88rem; }
+
+    /* ── CTA STRIP ───────────────────────────── */
+    .cta-strip {
+      background: linear-gradient(135deg,
+        rgba(26,107,224,.22) 0%,
+        rgba(12,184,184,.14) 100%);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 80px 0;
+    }
+    .cta-inner { text-align: center; max-width: 680px; margin: 0 auto; padding: 0 28px; }
+    .cta-inner h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 14px; }
+    .cta-inner p  { color: var(--gray-400); font-size: 1.02rem; margin-bottom: 36px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--blue-950);
+      border-top: 1px solid var(--glass-border);
+      padding: 36px 40px 28px;
+    }
+    .footer-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center;
+      gap: 20px;
+    }
+    .footer-brand { font-size: .88rem; font-weight: 700; color: var(--gray-200); }
+    .footer-brand span { color: var(--gray-600); font-weight: 400; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { color: var(--gray-600); text-decoration: none; font-size: .78rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--gray-400); }
+    .footer-copy { color: var(--gray-600); font-size: .75rem; }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-cta   { display: none; }
+      .hamburger { display: flex; }
+      .countries-layout { grid-template-columns: 1fr; }
+      .contact-layout   { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step::after { display: none; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--glass-border); min-width: 50%; }
+      .stat-item:nth-child(even) { border-right: none; }
+      .stat-item:nth-child(odd):not(:last-child) { border-right: 1px solid var(--glass-border); }
+      .steps { grid-template-columns: 1fr; }
+      footer { padding: 28px 20px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════════ -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#top">
+    <img src="img/logo.png" alt="TamanCorp" onerror="this.style.display='none'">
+    <span class="nav-logo-text"><span class="tc-taman">Taman</span><span class="tc-corp">Corp</span> Clinical ERP</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#modulos">Módulos</a></li>
+    <li><a href="#para-quien">Para quién</a></li>
+    <li><a href="#estandares">Estándares</a></li>
+    <li><a href="#soluciones">Soluciones</a></li>
+    <li><a href="#como-funciona">Implementación</a></li>
+    <li><a href="#paises">Países</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a class="nav-cta" href="#contacto">Solicitar Demo</a>
+    <button class="hamburger" id="burger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#modulos"       onclick="closeMobile()">Módulos</a>
+  <a href="#para-quien"    onclick="closeMobile()">Para quién</a>
+  <a href="#estandares"    onclick="closeMobile()">Estándares</a>
+  <a href="#soluciones"    onclick="closeMobile()">Soluciones independientes</a>
+  <a href="#como-funciona" onclick="closeMobile()">Implementación</a>
+  <a href="#paises"        onclick="closeMobile()">Países</a>
+  <a href="#contacto" class="mob-cta" onclick="closeMobile()">Solicitar Demo Gratuita →</a>
+</div>
+
+
+<!-- ═══ HERO ══════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Enterprise · Multi-país · Multi-tenant · Bilingüe ES / EN</div>
+
+    <!-- PRIMER PLANO -->
+    <h1><span class="tc-taman">Taman</span><span class="tc-corp">Corp</span><br><em>Clinical ERP</em></h1>
+
+    <!-- SEGUNDO PLANO -->
+    <p class="hero-tagline">El ERP clínico Enterprise que su institución merece.</p>
+
+    <p>112 módulos clínicos, financieros y administrativos integrados en una plataforma de clase mundial.
+    Configurable para <strong style="color:var(--gray-200)">cualquier país</strong> ·
+    Bilingüe (ES / EN) ·
+    Atiende el espectro completo de instituciones de salud <strong style="color:var(--gray-200)">públicas y privadas</strong>.</p>
+
+    <div class="hero-actions">
+      <a class="btn-lg btn-primary" href="#contacto">Solicitar demostración gratuita</a>
+      <a class="btn-lg btn-outline" href="#modulos">Ver todos los módulos ↓</a>
     </div>
 
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">En contacto!</h2>
-            <hr class="primary">
-            <p>Listo para iniciar su proyecto con nosotros? Excelente! Por favor contáctenos vía teléfono o E-mail y lo atenderemos ASAP!</p>
+    <div class="hero-trust">
+      <span class="trust-label">Cumple con</span>
+      <span class="trust-badge">WHO Surgical Safety</span>
+      <span class="trust-badge">BCMA 5 Correctos</span>
+      <span class="trust-badge">FHIR R4</span>
+      <span class="trust-badge">HL7 v2</span>
+      <span class="trust-badge">SSC 2021</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ STATS ════════════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-num">112</div>
+      <div class="stat-label">Módulos funcionales</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Soluciones independientes</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num">1 800+</div>
+      <div class="stat-label">Tests automatizados</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num">160+</div>
+      <div class="stat-label">Controladores API</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-4">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Multi-tenant SaaS</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">FHIR R4</div>
+      <div class="stat-label">Interoperabilidad</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ POR QUÉ ═══════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Por qué TamanCorp</div>
+      <h2 class="section-title">Construido para la realidad<br>de la salud global</h2>
+      <p class="section-subtitle">No adaptamos un producto extranjero. Diseñamos desde cero para los flujos clínicos, regulatorios y operativos de cada país e institución donde operamos.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon" style="background:rgba(26,107,224,.2);">🏥</div>
+        <h3>Cobertura clínica completa</h3>
+        <p>Urgencias, UCI, Quirófano, UCIN, Diálisis, Banco de Sangre y 20+ especialidades. Cada flujo asistencial cubierto con protocolos internacionales integrados.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon" style="background:rgba(12,184,184,.2);">🔒</div>
+        <h3>Seguridad enterprise</h3>
+        <p>JWT + MFA + SSO (OIDC/SAML 2.0). 36 roles, 180+ permisos granulares, auditoría inmutable, cifrado AES-256-GCM, segregación de funciones (SoD).</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon" style="background:rgba(16,185,129,.2);">⚕️</div>
+        <h3>Estándares WHO y BCMA</h3>
+        <p>Checklist quirúrgico WHO 3 fases, BCMA 5 Correctos al pie de cama, Sepsis SSC 2021, NEWS2 automático, Lab Valores Críticos con alertas STAT.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon" style="background:rgba(251,191,36,.2);">💰</div>
+        <h3>Ciclo financiero integrado</h3>
+        <p>AR, AP, reclamos a aseguradoras, motor de depuración de claims, conciliación bancaria, retenciones por país y contabilidad en un solo sistema.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon" style="background:rgba(167,139,250,.2);">🌐</div>
+        <h3>Cualquier país · Bilingüe</h3>
+        <p>Configurable para cualquier jurisdicción. Con cumplimiento nativo para Venezuela, Colombia, Chile, México y España, expandible bajo demanda. Interfaz y documentación bilingüe (ES / EN).</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon" style="background:rgba(248,113,113,.2);">⚡</div>
+        <h3>Arquitectura moderna</h3>
+        <p>.NET 8 + React 19 + SQL Server + SignalR en tiempo real. API REST versionada, worker jobs, outbox pattern, idempotencia y sagas distribuidas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ MÓDULOS ════════════════════════════════════════════════ -->
+<section class="arch-bg" id="modulos">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Arquitectura modular</div>
+      <h2 class="section-title">112 módulos en 5 núcleos<br>por criticidad y dependencia</h2>
+      <p class="section-subtitle">Implemente gradualmente. Cada núcleo se activa sobre el anterior, garantizando estabilidad en cada etapa. Los módulos marcados ✦ son incorporaciones recientes.</p>
+    </div>
+
+    <div class="phases">
+      <div class="phase p1 reveal">
+        <div class="phase-hd">
+          <div class="pn">1</div>
+          <span class="pt">Cimientos y seguridad</span>
+          <span class="pc">11 módulos · Prerequisito de todo lo demás</span>
+        </div>
+        <div class="tags">
+          <span class="tag p1">Autenticación MFA</span>
+          <span class="tag p1">SSO</span>
+          <span class="tag p1">Usuarios y Roles</span>
+          <span class="tag p1">Auditoría Inmutable</span>
+          <span class="tag p1">Perfil de Usuario</span>
+          <span class="tag p1">Configuración</span>
+          <span class="tag p1">HL7 v2 Hub</span>
+          <span class="tag p1">Motor de Reportes</span>
+          <span class="tag p1">Dashboard</span>
+          <span class="tag p1 new">FHIR R4 Gateway</span>
+          <span class="tag p1 new">Estadísticas Hospitalarias</span>
+        </div>
+      </div>
+      <div class="ph-arrow reveal">↓</div>
+
+      <div class="phase p2 reveal">
+        <div class="phase-hd">
+          <div class="pn">2</div>
+          <span class="pt">Núcleo clínico</span>
+          <span class="pc">30 módulos · Operación asistencial básica y avanzada</span>
+        </div>
+        <div class="tags">
+          <span class="tag p2">Pacientes</span>
+          <span class="tag p2 new">Índice Maestro Pacientes (MPI)</span>
+          <span class="tag p2">Agenda</span>
+          <span class="tag p2 new">Agenda Ambulatoria</span>
+          <span class="tag p2">Hospitalización</span>
+          <span class="tag p2">Urgencias</span>
+          <span class="tag p2 new">Tablero Emergencias ED</span>
+          <span class="tag p2">Gestión de Camas</span>
+          <span class="tag p2">Medicaciones / MAR</span>
+          <span class="tag p2">Farmacia</span>
+          <span class="tag p2">Laboratorio</span>
+          <span class="tag p2">Imagenología</span>
+          <span class="tag p2">CPOE / Orders</span>
+          <span class="tag p2">Facturación AR</span>
+          <span class="tag p2">Cargos y Tarifas</span>
+          <span class="tag p2">Notificaciones</span>
+          <span class="tag p2">Historia Clínica (HCE)</span>
+          <span class="tag p2 new">HCE Flowsheets</span>
+          <span class="tag p2 new">Lista de Problemas + Notas</span>
+          <span class="tag p2">Triaje</span>
+          <span class="tag p2">Consentimiento Informado</span>
+          <span class="tag p2 new">Consentimiento Avanzado + Firma Biométrica</span>
+          <span class="tag p2 new">Directivas Anticipadas</span>
+          <span class="tag p2 new">Inmunizaciones</span>
+          <span class="tag p2 new">Alergias e Intolerancias</span>
+          <span class="tag p2 new">Flujo de Pacientes</span>
+          <span class="tag p2 new">Transporte Interno</span>
+          <span class="tag p2 new">Mensajería Segura Clínica</span>
+          <span class="tag p2 new">Colección POC</span>
+          <span class="tag p2 new">Motor IA / ML Clínico</span>
+        </div>
+      </div>
+      <div class="ph-arrow reveal">↓</div>
+
+      <div class="phase p3 reveal">
+        <div class="phase-hd">
+          <div class="pn">3</div>
+          <span class="pt">Especialidades hospitalarias y seguridad clínica</span>
+          <span class="pc">29 módulos</span>
+        </div>
+        <div class="tags">
+          <span class="tag p3">UCI</span>
+          <span class="tag p3">Quirófano</span>
+          <span class="tag p3 new">Timeout Quirúrgico WHO</span>
+          <span class="tag p3">UCIN</span>
+          <span class="tag p3">AIMS Anestesia</span>
+          <span class="tag p3">Diálisis</span>
+          <span class="tag p3">BCMA 5 Correctos</span>
+          <span class="tag p3 new">Cola Verificación Farmacéutica</span>
+          <span class="tag p3 new">Lab Valores Críticos + Delta</span>
+          <span class="tag p3">Alertas CDS</span>
+          <span class="tag p3">EWS / NEWS2</span>
+          <span class="tag p3">Sepsis SSC 2021</span>
+          <span class="tag p3">Conciliación de Meds.</span>
+          <span class="tag p3">Dosis Unitaria</span>
+          <span class="tag p3">Inventario</span>
+          <span class="tag p3">Banco de Sangre</span>
+          <span class="tag p3">Esterilización CSSD</span>
+          <span class="tag p3">Formulario Farmacológico</span>
+          <span class="tag p3">Staff Médico</span>
+          <span class="tag p3">Cardiología / ECG</span>
+          <span class="tag p3">Anatomía Patológica</span>
+          <span class="tag p3">Hemodinamia</span>
+          <span class="tag p3">Neurología</span>
+          <span class="tag p3">Endoscopia</span>
+          <span class="tag p3">Oftalmología</span>
+          <span class="tag p3 new">Monitoreo Continuo de Signos Vitales</span>
+          <span class="tag p3 new">Obstetricia / Perinatología</span>
+          <span class="tag p3 new">Aislamiento y Precauciones</span>
+          <span class="tag p3 new">Hemovigilancia</span>
+        </div>
+      </div>
+      <div class="ph-arrow reveal">↓</div>
+
+      <div class="phase p4 reveal">
+        <div class="phase-hd">
+          <div class="pn">4</div>
+          <span class="pt">Finanzas, RRHH y calidad</span>
+          <span class="pc">22 módulos · Cierre del ciclo administrativo</span>
+        </div>
+        <div class="tags">
+          <span class="tag p4">Seguros</span>
+          <span class="tag p4">Reclamos (Claims)</span>
+          <span class="tag p4 new">Motor Depuración Reclamos</span>
+          <span class="tag p4">Cuentas por Pagar</span>
+          <span class="tag p4">Conciliación Bancaria</span>
+          <span class="tag p4">Contabilidad</span>
+          <span class="tag p4">RRHH / Nómina</span>
+          <span class="tag p4">Credencialización</span>
+          <span class="tag p4">Indicadores de Calidad</span>
+          <span class="tag p4">Control de Infecciones</span>
+          <span class="tag p4">Gestión de Riesgos</span>
+          <span class="tag p4">Satisfacción del Paciente</span>
+          <span class="tag p4">Codificación Clínica</span>
+          <span class="tag p4">Contratos</span>
+          <span class="tag p4">Gestión Documental</span>
+          <span class="tag p4">Analytics / DW</span>
+          <span class="tag p4">Compras y Proveedores</span>
+          <span class="tag p4">Activos Fijos</span>
+          <span class="tag p4">Presupuestación</span>
+          <span class="tag p4 new">Cobro Punto de Servicio (POS)</span>
+          <span class="tag p4 new">Planes de Pago y Deuda</span>
+          <span class="tag p4 new">Estimación de Costos</span>
+        </div>
+      </div>
+      <div class="ph-arrow reveal">↓</div>
+
+      <div class="phase p5 reveal">
+        <div class="phase-hd">
+          <div class="pn">5</div>
+          <span class="pt">Expansión y servicios complementarios</span>
+          <span class="pc">20 módulos · Salud pública, analítica, manufactura y portal paciente</span>
+        </div>
+        <div class="tags">
+          <span class="tag p5">Telemedicina</span>
+          <span class="tag p5">Portal del Paciente</span>
+          <span class="tag p5">Atención Primaria (APS)</span>
+          <span class="tag p5">Medicina Ocupacional</span>
+          <span class="tag p5">Oncología / Quimioterapia</span>
+          <span class="tag p5">Rehabilitación</span>
+          <span class="tag p5">Dietética / Nutrición</span>
+          <span class="tag p5">Mantenimiento</span>
+          <span class="tag p5">Motor de Comunicaciones</span>
+          <span class="tag p5">Epidemiología</span>
+          <span class="tag p5">Trabajo Social</span>
+          <span class="tag p5">Investigación Clínica</span>
+          <span class="tag p5">Salud Mental</span>
+          <span class="tag p5">Cuidados Paliativos</span>
+          <span class="tag p5">IoT Médico</span>
+          <span class="tag p5 new">Equipos Biomédicos</span>
+          <span class="tag p5 new">Outreach / Adherencia</span>
+          <span class="tag p5 new">Salud Poblacional</span>
+          <span class="tag p5 new">Motor Estadístico — Estudios Clínicos</span>
+          <span class="tag p5 new">FMS Manufacturing Execution System</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PARA QUIÉN ════════════════════════════════════════════ -->
+<section id="para-quien">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Casos de uso</div>
+      <h2 class="section-title">Diseñado para su tipo<br>de institución</h2>
+      <p class="section-subtitle">Atiende el espectro completo de instituciones de salud públicas y privadas. Configuramos el sistema según su modelo operativo — no todo el mundo necesita los 89 módulos desde el día uno.</p>
+    </div>
+    <div class="inst-grid">
+      <div class="inst-card reveal reveal-delay-1">
+        <div class="inst-emoji">🏨</div>
+        <h3>Hospital General</h3>
+        <ul>
+          <li>Núcleos 1–4 completos</li>
+          <li>UCI, Quirófano, UCIN</li>
+          <li>Ciclo financiero completo</li>
+          <li>Gestión de camas en tiempo real</li>
+          <li>BCMA + CPOE + CDS</li>
+        </ul>
+      </div>
+      <div class="inst-card reveal reveal-delay-2">
+        <div class="inst-emoji">🏪</div>
+        <h3>Clínica Ambulatoria</h3>
+        <ul>
+          <li>Núcleos 1–2 + Agenda Ambulatoria</li>
+          <li>HCE Flowsheets y Notas</li>
+          <li>Portal del Paciente</li>
+          <li>Telemedicina integrada</li>
+          <li>Facturación AR simplificada</li>
+        </ul>
+      </div>
+      <div class="inst-card reveal reveal-delay-3">
+        <div class="inst-emoji">🧬</div>
+        <h3>Centro Oncológico</h3>
+        <ul>
+          <li>Oncología / Quimioterapia USP 797</li>
+          <li>Verificación doble de dosis</li>
+          <li>Protocolos por SCF/peso</li>
+          <li>Banco de Sangre + Lab</li>
+          <li>Investigación Clínica</li>
+        </ul>
+      </div>
+      <div class="inst-card reveal reveal-delay-1">
+        <div class="inst-emoji">🚑</div>
+        <h3>Red de Urgencias</h3>
+        <ul>
+          <li>Tablero ED en tiempo real</li>
+          <li>Triaje ESI 1–5 automatizado</li>
+          <li>EWS / NEWS2 automático</li>
+          <li>Sepsis SSC 2021</li>
+          <li>MPI para pacientes recurrentes</li>
+        </ul>
+      </div>
+      <div class="inst-card reveal reveal-delay-2">
+        <div class="inst-emoji">🌐</div>
+        <h3>Red Multi-sede</h3>
+        <ul>
+          <li>Multi-tenant nativo por sede</li>
+          <li>Analytics consolidado</li>
+          <li>MPI unificado entre sedes</li>
+          <li>Indicadores de calidad centrales</li>
+          <li>SSO único para todo el staff</li>
+        </ul>
+      </div>
+      <div class="inst-card reveal reveal-delay-3">
+        <div class="inst-emoji">🧠</div>
+        <h3>Instituto de Salud Mental</h3>
+        <ul>
+          <li>Episodios DSM-5 / CIE-10</li>
+          <li>PHQ-9, GAD-7, BPRS, PANSS</li>
+          <li>Registro de crisis con plan de seguridad</li>
+          <li>Tablero de alto riesgo 30 días</li>
+          <li>Trabajo Social integrado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ESTÁNDARES ════════════════════════════════════════════ -->
+<section class="arch-bg" id="estandares">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Seguridad y protocolos</div>
+      <h2 class="section-title">Cumplimiento de estándares<br>clínicos internacionales</h2>
+      <p class="section-subtitle">No solo gestionamos datos: aplicamos los protocolos que salvan vidas, integrados en cada flujo de trabajo del sistema.</p>
+    </div>
+    <div class="std-grid">
+      <div class="std-card reveal reveal-delay-1">
+        <div class="std-icon">✅</div>
+        <h3>WHO Surgical Safety Checklist</h3>
+        <p>Sign-In, Time-Out y Sign-Out secuenciales y obligatorios. El sistema bloquea saltarse fases. Trazabilidad completa del equipo quirúrgico.</p>
+      </div>
+      <div class="std-card reveal reveal-delay-2">
+        <div class="std-icon">💊</div>
+        <h3>BCMA — 5 Correctos</h3>
+        <p>Verificación al pie de cama: paciente, medicamento, dosis (±tolerancia%), vía y tiempo. Override documentado obligatorio si algún derecho falla.</p>
+      </div>
+      <div class="std-card reveal reveal-delay-3">
+        <div class="std-icon">🫀</div>
+        <h3>Surviving Sepsis Campaign 2021</h3>
+        <p>Tamizaje SIRS/qSOFA, activación automática del bundle 1h, seguimiento cronometrado de cada elemento con alertas en tiempo real.</p>
+      </div>
+      <div class="std-card reveal reveal-delay-1">
+        <div class="std-icon">📊</div>
+        <h3>NEWS2 / EWS</h3>
+        <p>Cálculo automático del score de alerta temprana. Alerta ≥5 al médico tratante, alerta ≥7 al Equipo de Respuesta Rápida del hospital.</p>
+      </div>
+      <div class="std-card reveal reveal-delay-2">
+        <div class="std-icon">🧪</div>
+        <h3>Lab Valores Críticos + Delta Checks</h3>
+        <p>Reglas de pánico/crítico configurables por institución. Alertas STAT idempotentes. Delta checks por variación porcentual entre resultados consecutivos.</p>
+      </div>
+      <div class="std-card reveal reveal-delay-3">
+        <div class="std-icon">😴</div>
+        <h3>Score Aldrete — PACU</h3>
+        <p>Evaluación post-anestésica en AIMS. Score ≥9 habilita traslado a sala general. Registro intraoperatorio continuo cada minuto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SOLUCIONES INDEPENDIENTES ════════════════════════════ -->
+<section id="soluciones">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">También disponibles de forma independiente</div>
+      <h2 class="section-title">10 soluciones standalone<br>para cualquier industria</h2>
+      <p class="section-subtitle">Estos módulos funcionan completamente fuera del ecosistema clínico. Licencia modular — paga solo por lo que necesitas. Ideal para empresas, aseguradoras, industria, manufactura, gobierno o cualquier sector que requiera una herramienta de gestión de clase enterprise.</p>
+    </div>
+    <div class="standalone-grid">
+
+      <div class="standalone-card reveal reveal-delay-1">
+        <div class="sa-pill">◈ TamanCorp HR</div>
+        <h3>RRHH / Nómina</h3>
+        <p class="sa-tagline">Gestión de talento humano y nómina empresarial</p>
+        <ul class="sa-includes">
+          <li>Ciclo de vida del empleado</li>
+          <li>Nómina y prestaciones sociales</li>
+          <li>Asistencia, turnos y evaluación</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Cualquier empresa</span>
+          <span class="sa-sector">Retail</span>
+          <span class="sa-sector">Educación</span>
+          <span class="sa-sector">Manufactura</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-2">
+        <div class="sa-pill">◈ TamanCorp Finance</div>
+        <h3>Suite Financiera</h3>
+        <p class="sa-tagline">Contabilidad, presupuesto y ciclo financiero completo</p>
+        <ul class="sa-includes">
+          <li>Contabilidad (GL) · AP · AR</li>
+          <li>Conciliación bancaria</li>
+          <li>Compras · Presupuestación · Activos Fijos</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Empresas medianas/grandes</span>
+          <span class="sa-sector">Holding</span>
+          <span class="sa-sector">ONGs</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-3">
+        <div class="sa-pill">◈ TamanCorp TeleMed</div>
+        <h3>Suite de Telemedicina</h3>
+        <p class="sa-tagline">Consulta médica remota con portal de paciente integrado</p>
+        <ul class="sa-includes">
+          <li>Videoconsulta HD + prescripción</li>
+          <li>Agenda ambulatoria</li>
+          <li>Portal del paciente self-service</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Clínicas privadas</span>
+          <span class="sa-sector">Aseguradoras</span>
+          <span class="sa-sector">Corporativos</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-1">
+        <div class="sa-pill">◈ TamanCorp UnitDose</div>
+        <h3>Suite Farmacia Hospitalaria</h3>
+        <p class="sa-tagline">Dosis unitaria, BCMA 5 correctos y formulario farmacológico</p>
+        <ul class="sa-includes">
+          <li>Dosis unitaria con trazabilidad</li>
+          <li>BCMA — verificación 5 correctos</li>
+          <li>Formulario farmacológico institucional</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Farmacias hospitalarias</span>
+          <span class="sa-sector">Clínicas JCI/NABH</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-2">
+        <div class="sa-pill">◈ TamanCorp ClinTrial</div>
+        <h3>Plataforma EDC / ClinTrial</h3>
+        <p class="sa-tagline">EDC completo para ensayos clínicos y farmacovigilancia</p>
+        <ul class="sa-includes">
+          <li>CRF electrónicos por visita</li>
+          <li>Gestión de sujetos y sitios</li>
+          <li>Farmacovigilancia · ICH-GCP · 21 CFR</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Industria farmacéutica</span>
+          <span class="sa-sector">CROs</span>
+          <span class="sa-sector">Biotecnología</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-3">
+        <div class="sa-pill">◈ TamanCorp MaintOps</div>
+        <h3>Suite CMMS de Mantenimiento</h3>
+        <p class="sa-tagline">CMMS completo: activos, mantenimiento e inventario de repuestos</p>
+        <ul class="sa-includes">
+          <li>Órdenes de trabajo preventivo/correctivo</li>
+          <li>Registro de activos físicos</li>
+          <li>Inventario de repuestos</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Industria</span>
+          <span class="sa-sector">Manufactura</span>
+          <span class="sa-sector">Hotelería</span>
+          <span class="sa-sector">Hospitales</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-1">
+        <div class="sa-pill">◈ TamanCorp PrimaryCare</div>
+        <h3>APS / Medicina Ocupacional</h3>
+        <p class="sa-tagline">Salud primaria y medicina del trabajo para empresas y centros públicos</p>
+        <ul class="sa-includes">
+          <li>Consulta ambulatoria + ficha ocupacional</li>
+          <li>Exámenes preempleo y periódicos</li>
+          <li>Ausentismo y bienestar corporativo</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Empresas medianas/grandes</span>
+          <span class="sa-sector">APS pública</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-2">
+        <div class="sa-pill">◈ TamanCorp HealthPlan</div>
+        <h3>Suite Admin. Planes de Salud</h3>
+        <p class="sa-tagline">Gestión integral de planes, afiliados, reclamos y pre-autorizaciones</p>
+        <ul class="sa-includes">
+          <li>Planes, afiliados y suscripciones</li>
+          <li>Procesamiento de reclamos / Claims</li>
+          <li>Pre-autorizaciones electrónicas</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Aseguradoras</span>
+          <span class="sa-sector">EPS / HMO</span>
+          <span class="sa-sector">Cajas de previsión</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-3">
+        <div class="sa-pill">◈ TamanCorp DocVault</div>
+        <h3>Gestión Documental</h3>
+        <p class="sa-tagline">Control documental con ciclo de vida, revisiones y distribución</p>
+        <ul class="sa-includes">
+          <li>Versionado y control de cambios</li>
+          <li>Flujo de revisión y aprobación</li>
+          <li>Distribución con acuse de lectura</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Corporativos</span>
+          <span class="sa-sector">Gobierno</span>
+          <span class="sa-sector">Bufetes / Legal</span>
+          <span class="sa-sector">Educación</span>
+        </div>
+      </div>
+
+      <div class="standalone-card reveal reveal-delay-1">
+        <div class="sa-pill">◈ TamanCorp FMS</div>
+        <h3>Manufacturing Execution System</h3>
+        <p class="sa-tagline">MES industrial completo: BOM, ruteos, OEE, trazabilidad y calidad de proceso</p>
+        <ul class="sa-includes">
+          <li>BOM multinivel · Órdenes de producción</li>
+          <li>OEE en tiempo real · Ruteos configurables</li>
+          <li>Trazabilidad lote / serie · Control de calidad</li>
+          <li>Gestión de no-conformidades</li>
+        </ul>
+        <div class="sa-sectors">
+          <span class="sa-sector">Manufactura</span>
+          <span class="sa-sector">Industria farmacéutica</span>
+          <span class="sa-sector">Alimentos y bebidas</span>
+          <span class="sa-sector">Dispositivos médicos</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ IMPLEMENTACIÓN ════════════════════════════════════════ -->
+<section class="impl-bg" id="como-funciona">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Proceso de implementación</div>
+      <h2 class="section-title">En marcha en semanas,<br>no en años</h2>
+      <p class="section-subtitle">Un proceso probado y documentado para que su institución opere el sistema con confianza desde el primer día.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">PASO 01</div>
+        <div class="step-circle">🔍</div>
+        <h3>Diagnóstico</h3>
+        <p>Levantamos los flujos actuales de su institución e identificamos los módulos y núcleos que necesita desde el inicio.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">PASO 02</div>
+        <div class="step-circle">⚙️</div>
+        <h3>Configuración</h3>
+        <p>Parametrizamos el sistema: país, tenant, usuarios, roles, catálogos clínicos, aseguradoras y reglas financieras.</p>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num">PASO 03</div>
+        <div class="step-circle">🗄️</div>
+        <h3>Migración de Datos</h3>
+        <p>Importamos pacientes, catálogos, histórico clínico y saldos financieros con validación y doble verificación.</p>
+      </div>
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">PASO 04</div>
+        <div class="step-circle">🎓</div>
+        <h3>Capacitación</h3>
+        <p>Formación por roles: médicos, enfermeras, farmacéuticos, administradores y directivos. Materiales incluidos.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">PASO 05</div>
+        <div class="step-circle">🚀</div>
+        <h3>Go-Live</h3>
+        <p>Arranque con acompañamiento en sitio. Monitoreo 24/7 durante las primeras semanas de operación real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PAÍSES / TECH ════════════════════════════════════════ -->
+<section class="countries-bg" id="paises">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Cobertura regional y tecnología</div>
+      <h2 class="section-title">Configurable para cualquier país<br>Cumplimiento regulatorio local · Bilingüe (ES / EN)</h2>
+      <p class="section-subtitle" style="margin:0 auto 8px;">Con cumplimiento nativo en Venezuela, Colombia, Chile, México y España. Expandible a cualquier jurisdicción bajo demanda.</p>
+    </div>
+    <div class="countries-layout">
+      <div class="country-list">
+        <div class="country-item reveal reveal-delay-1">
+          <div class="cf">🇻🇪</div>
+          <div class="ci">
+            <h4>Venezuela</h4>
+            <p>SENIAT, IVSS, FAOV, ISLR, retenciones IVA / ISLR, factura fiscal MPPS</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 ml-auto text-center">
-            <i class="fa fa-phone fa-3x sr-contact"></i>
-            <p>+56 22 864 2430</p>
+        <div class="country-item reveal reveal-delay-2">
+          <div class="cf">🇨🇴</div>
+          <div class="ci">
+            <h4>Colombia</h4>
+            <p>DIAN, RIPS, retenciones fuente / ICA / IVA, factura electrónica UBL 2.1</p>
           </div>
-          <div class="col-lg-4 mr-auto text-center">
-            <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-            <p>
-              <a href="mailto:contacto@tamancorp.com">contacto@tamancorp.com</a>
-            </p>
+        </div>
+        <div class="country-item reveal reveal-delay-3">
+          <div class="cf">🇨🇱</div>
+          <div class="ci">
+            <h4>Chile</h4>
+            <p>SII, DTE electrónico, FONASA / ISAPRE, factura electrónica XML</p>
+          </div>
+        </div>
+        <div class="country-item reveal reveal-delay-1">
+          <div class="cf">🇲🇽</div>
+          <div class="ci">
+            <h4>México</h4>
+            <p>SAT, CFDI 4.0, IMSS / ISSSTE, retenciones ISR, complemento de pago</p>
+          </div>
+        </div>
+        <div class="country-item reveal reveal-delay-2">
+          <div class="cf">🇪🇸</div>
+          <div class="ci">
+            <h4>España</h4>
+            <p>AEAT, SII mensual, TicketBAI, IRPF, Seguridad Social, VeriFactu</p>
+          </div>
+        </div>
+        <div class="country-item reveal reveal-delay-3">
+          <div class="cf">🌍</div>
+          <div class="ci">
+            <h4>Cualquier otro país</h4>
+            <p>Motor fiscal configurable. Adaptación a legislación local bajo demanda. Interfaz bilingüe español / inglés.</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+      <div class="reveal">
+        <p class="section-tag" style="margin-bottom:20px;">Stack tecnológico</p>
+        <div class="tech-grid">
+          <div class="tech-pill"><span class="dot" style="background:#512bd4;"></span>.NET 8 · ASP.NET Core</div>
+          <div class="tech-pill"><span class="dot" style="background:#61dafb;"></span>React 19 · Vite · TS</div>
+          <div class="tech-pill"><span class="dot" style="background:#cc2927;"></span>SQL Server 2022</div>
+          <div class="tech-pill"><span class="dot" style="background:#e535ab;"></span>SignalR Real-time</div>
+          <div class="tech-pill"><span class="dot" style="background:#0db7ed;"></span>Docker + Compose</div>
+          <div class="tech-pill"><span class="dot" style="background:#10b981;"></span>Dapper ORM</div>
+          <div class="tech-pill"><span class="dot" style="background:#ff6b6b;"></span>xUnit · 1 800+ tests</div>
+          <div class="tech-pill"><span class="dot" style="background:#f7931e;"></span>JWT + MFA + SSO</div>
+          <div class="tech-pill"><span class="dot" style="background:#764abc;"></span>AES-256 Cifrado</div>
+          <div class="tech-pill"><span class="dot" style="background:#fbbf24;"></span>Outbox + Sagas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
+<!-- ═══ INTEGRACIÓN ══════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Interoperabilidad</div>
+      <h2 class="section-title">Su sistema integrado<br>con el ecosistema de salud</h2>
+      <p class="section-subtitle">Estándares abiertos para conectar con laboratorios, PACS, aseguradoras, sistemas de gobierno y dispositivos médicos.</p>
+    </div>
+    <div class="integ-grid">
+      <div class="integ-card reveal reveal-delay-1">
+        <div class="badge">FHIR R4</div>
+        <p>Patient, Encounter, Observation, MedicationRequest, DiagnosticReport según HL7 FHIR R4</p>
+      </div>
+      <div class="integ-card reveal reveal-delay-2">
+        <div class="badge">HL7 v2</div>
+        <p>ADT^A01/A03, ORM^O01, ORU^R01 bidireccional con LIS, PACS e HIS externos</p>
+      </div>
+      <div class="integ-card reveal reveal-delay-3">
+        <div class="badge">REST API</div>
+        <p>160+ controladores, 1 000+ endpoints versionados bajo /api/v1/ con documentación OpenAPI</p>
+      </div>
+      <div class="integ-card reveal reveal-delay-1">
+        <div class="badge">Webhooks</div>
+        <p>Suscripciones HMAC-SHA256 con reintentos exponenciales. Eventos en tiempo real.</p>
+      </div>
+      <div class="integ-card reveal reveal-delay-2">
+        <div class="badge">SignalR</div>
+        <p>WebSocket para alertas clínicas, tablero de emergencias y notificaciones instantáneas</p>
+      </div>
+      <div class="integ-card reveal reveal-delay-3">
+        <div class="badge">IoT Médico</div>
+        <p>Integración con monitores, infusores, ventiladores y dispositivos de cabecera de cama</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </body>
 
+<!-- ═══ CTA STRIP ════════════════════════════════════════════ -->
+<div class="cta-strip">
+  <div class="cta-inner reveal">
+    <h2>¿Listo para transformar su institución?</h2>
+    <p>Agenda una demostración personalizada y vea cómo TamanCorp Clinical ERP se adapta exactamente a los flujos de su organización — en cualquier país.</p>
+    <div class="cta-btns">
+      <a class="btn-lg btn-primary" href="#contacto">Solicitar demostración gratuita</a>
+      <a class="btn-lg btn-outline" href="mailto:contacto@tamancorp.com">Escribirnos directamente</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ CONTACTO + FORMULARIO ════════════════════════════════ -->
+<section class="contact-bg" id="contacto">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Contacto</div>
+      <h2 class="section-title">Hablemos de su proyecto</h2>
+      <p class="section-subtitle">Cuéntenos sobre su institución y le preparamos una propuesta personalizada sin costo ni compromiso.</p>
+    </div>
+
+    <div class="contact-layout">
+      <!-- Info cards -->
+      <div class="contact-info">
+        <div class="contact-info-card reveal reveal-delay-1">
+          <div class="ci-icon">📞</div>
+          <div>
+            <h4>Teléfono</h4>
+            <a href="tel:+56228642430">+56 22 864 2430</a>
+            <p>Chile · Lun–Vie 9:00–18:00</p>
+          </div>
+        </div>
+        <div class="contact-info-card reveal reveal-delay-2">
+          <div class="ci-icon">✉️</div>
+          <div>
+            <h4>Correo electrónico</h4>
+            <a href="mailto:contacto@tamancorp.com">contacto@tamancorp.com</a>
+            <p>Respuesta en menos de 24 h hábiles</p>
+          </div>
+        </div>
+        <div class="contact-info-card reveal reveal-delay-3">
+          <div class="ci-icon">🌎</div>
+          <div>
+            <h4>Presencia regional</h4>
+            <p>Venezuela · Colombia · Chile<br>México · España · y más países</p>
+          </div>
+        </div>
+        <div class="contact-info-card reveal reveal-delay-1">
+          <div class="ci-icon">🚀</div>
+          <div>
+            <h4>Demo gratuita</h4>
+            <p>Presentación personalizada de 60 min adaptada a su tipo de institución y país</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-card reveal">
+        <div id="formBody">
+          <div class="form-title">Solicitar demostración</div>
+          <div class="form-subtitle">Complete el formulario y nos ponemos en contacto en menos de 24 horas hábiles.</div>
+
+          <form id="demoForm" onsubmit="handleSubmit(event)" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Nombre *</label>
+                <input id="fname" type="text" placeholder="Dr. Juan García" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico *</label>
+                <input id="email" type="email" placeholder="juan@hospital.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input id="phone" type="tel" placeholder="+56 9 1234 5678">
+              </div>
+              <div class="form-group">
+                <label for="country">País *</label>
+                <select id="country" required>
+                  <option value="">Seleccione país</option>
+                  <option>Venezuela</option>
+                  <option>Colombia</option>
+                  <option>Chile</option>
+                  <option>México</option>
+                  <option>España</option>
+                  <option>Argentina</option>
+                  <option>Perú</option>
+                  <option>Ecuador</option>
+                  <option>Bolivia</option>
+                  <option>Paraguay</option>
+                  <option>Uruguay</option>
+                  <option>Costa Rica</option>
+                  <option>Panamá</option>
+                  <option>República Dominicana</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="institution">Nombre de la institución *</label>
+              <input id="institution" type="text" placeholder="Hospital General Santa María" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="role">Su cargo</label>
+                <select id="role">
+                  <option value="">Seleccione cargo</option>
+                  <option>Director / Gerente General</option>
+                  <option>Director Médico</option>
+                  <option>Director Administrativo</option>
+                  <option>Director de TI / CTO</option>
+                  <option>Jefe de Enfermería</option>
+                  <option>Director Financiero</option>
+                  <option>Consultor / Asesor</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="instType">Tipo de institución</label>
+                <select id="instType">
+                  <option value="">Seleccione tipo</option>
+                  <option>Hospital General (público)</option>
+                  <option>Hospital General (privado)</option>
+                  <option>Clínica Ambulatoria</option>
+                  <option>Centro Oncológico</option>
+                  <option>Red Multi-sede</option>
+                  <option>Centro de Urgencias</option>
+                  <option>Instituto de Salud Mental</option>
+                  <option>Clínica Especializada</option>
+                  <option>EPS / Aseguradora / HMO</option>
+                  <option>APS / Centro de Salud Público</option>
+                  <option>Empresa (Salud Ocupacional)</option>
+                  <option>Industria Farmacéutica / CRO</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">¿Qué módulos o áreas le interesan principalmente?</label>
+              <textarea id="message" placeholder="Ej: Urgencias, UCI, Facturación a aseguradoras, Farmacia BCMA, RRHH standalone..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Solicitar demostración gratuita →</button>
+          </form>
+          <p class="form-note">🔒 Sus datos son confidenciales. No compartimos información con terceros.</p>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="ok-icon">✅</div>
+          <h3>¡Solicitud recibida!</h3>
+          <p>Gracias por su interés en TamanCorp Clinical ERP.<br>
+          Nos pondremos en contacto con usted en menos de 24 horas hábiles para coordinar su demostración personalizada.</p>
+          <p style="margin-top:16px;">
+            <a href="mailto:contacto@tamancorp.com" style="color:var(--teal-400);">contacto@tamancorp.com</a> ·
+            <a href="tel:+56228642430" style="color:var(--teal-400);">+56 22 864 2430</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      TamanCorp Clinical ERP Enterprise <span>· v1.2 · 112 módulos · 10 soluciones independientes · Bilingüe ES/EN</span>
+    </div>
+    <div class="footer-links">
+      <a href="#modulos">Módulos</a>
+      <a href="#soluciones">Soluciones</a>
+      <a href="#estandares">Estándares</a>
+      <a href="#paises">Países</a>
+      <a href="#contacto">Contacto</a>
+      <a href="mailto:contacto@tamancorp.com">contacto@tamancorp.com</a>
+    </div>
+    <div class="footer-copy">© 2026 TamanCorp Systems. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+
+<script>
+  /* ── Hamburger ──────────────────────────────── */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobile() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  /* ── Scroll reveal ──────────────────────────── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ── Navbar scroll effect ───────────────────── */
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(3,11,26,.96)'
+      : 'rgba(3,11,26,.88)';
+  }, { passive: true });
+
+  /* ── Contact form ───────────────────────────── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const ctry  = document.getElementById('country').value;
+    const inst  = document.getElementById('institution').value.trim();
+
+    // Basic validation
+    if (!fname || !email || !ctry || !inst) {
+      const firstEmpty = [
+        document.getElementById('fname'),
+        document.getElementById('email'),
+        document.getElementById('country'),
+        document.getElementById('institution')
+      ].find(el => !el.value.trim());
+      if (firstEmpty) {
+        firstEmpty.style.borderColor = '#f87171';
+        firstEmpty.focus();
+        setTimeout(() => firstEmpty.style.borderColor = '', 2500);
+      }
+      return;
+    }
+
+    // Collect data
+    const payload = {
+      nombre: fname,
+      email,
+      telefono:    document.getElementById('phone').value,
+      pais:        ctry,
+      institucion: inst,
+      cargo:       document.getElementById('role').value,
+      tipo:        document.getElementById('instType').value,
+      mensaje:     document.getElementById('message').value,
+      timestamp:   new Date().toISOString()
+    };
+    console.log('Demo request:', payload);
+
+    // Show success
+    const form = document.getElementById('demoForm');
+    form.style.opacity = '0';
+    form.style.transition = 'opacity .4s';
+    setTimeout(() => {
+      form.style.display = 'none';
+      document.querySelector('.form-subtitle').style.display = 'none';
+      document.querySelector('.form-title').style.display  = 'none';
+      document.querySelector('.form-note').style.display   = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    }, 400);
+  }
+
+  // Clear error style on input
+  ['fname','email','country','institution'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function() {
+      this.style.borderColor = '';
+    });
+  });
+</script>
+
+</body>
 </html>
